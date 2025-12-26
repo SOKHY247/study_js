@@ -54,13 +54,18 @@
 
 
 // ========================================== how to use querySelectorAll()
+// const foods = document.querySelectorAll("li");
+
+// foods.forEach((food)=>{
+//     food.style.backgroundColor = "lightgray";
+// });
+// foods[0].style.backgroundColor = "pink";
+// foods[1].style.backgroundColor = "lightgreen";
+// foods[2].style.backgroundColor = "lightgray";
+
 const foods = document.querySelectorAll("li");
 
 foods.forEach((food)=>{
     food.style.backgroundColor = "lightgray";
 });
-// foods[0].style.backgroundColor = "pink";
-// foods[1].style.backgroundColor = "lightgreen";
-// foods[2].style.backgroundColor = "lightgray";
-
 console.log(foods);
