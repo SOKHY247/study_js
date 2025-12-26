@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-image: url("angkor_wat.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+        }
+        #clock-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #clock {
+            color: whitesmoke;
+            font-family: monospace;
+            font-size: 6.5rem;
+            font-weight: bold;
+            text-align: center;
+            backdrop-filter: blur(2px);
+            background-color: hsla(0, 0% , 100%,0.1);
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="clock-container">
+        <div id="clock">
+            00:00:00
+        </div>
+
+    </div>
+<script src="time_now.js">
+
+</script>
+
+</body>
+</html>

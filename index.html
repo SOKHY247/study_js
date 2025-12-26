@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myweb site </title>
+    <style>
+        #countLabel {
+            display: block;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 48px;
+            margin-right: 20px;
+        }
+        #btncontainer {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button {
+            font-size:20px ;
+            padding: 10px 20px;
+            color: white;
+            background-color: rgb(35, 27, 94);
+            border-radius:5px  ;
+            cursor: pointer;
+            transition: background-color 0.25s;
+        }
+        .button:hover {
+            background-color: rgb(87, 164, 145);
+        }
+        
+    </style>
+</head>
+<body>
+    <label id="countLabel">0</label><Br></Br>
+
+    <div id="btncontainer">
+    <button id="decreaseBtn" class="button"> decrease</button>
+    <button id="resetBtn" class="button"> reset</button>
+    <button id="increaseBtn" class="button"> increase</button>
+    </div>
+    
+    <script src="Count.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice game </title>
+    <style>
+        #container {
+            font-family: ".Mondulkiri U h",serif;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+
+        }
+        button{
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: #629e2e;
+            color:white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        input{
+            font-size: 2rem;
+            width: 150px;
+            text-align: center;
+            font-weight: bold;
+
+        }
+        button:hover{
+            background-color: #82538a;
+        }
+        button:active{
+            background-color: #d12f14;
+        }
+        #diceResult{
+            margin: 25px;
+            text-align: center;
+        }
+        #diceImages{
+            width: 15px;
+            margin: 5px;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h1>Dice Roller</h1>
+        <label># of dice:</label>
+        <input type="number" value="1" min="1" max="10" id="numofDice">
+        <button onclick="rollDice()">Roll Dice</button>
+        <div id="diceResult"></div>
+        <div id="diceImages"></div>
+
+    </div>
+
+<script src="Dice_game.js"> </script>
+</body>
+</html>

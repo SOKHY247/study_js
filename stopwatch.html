@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stopwatch</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #4c5c84;
+        }
+        #myH1{
+            font-size: 4rem;
+            font-family:"Arial",sans-serif;
+            color: hsla(0,0%,25%);
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            border: 5px solid;
+            border-radius: 50px;
+            background-color: white;
+        }
+        #display{
+            font-size: 5rem;
+            font-family: monospace;
+            font-weight: bold;
+            color: hsl(0,0%,30%);
+            text-shadow: 2px 2px 2px black;
+            margin-bottom: 25px;
+        }
+        #controls button{
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 5px;
+            min-width:125px ;
+            border:none ;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+        }
+        #startBtn {
+            background-color: #6be305;
+        }
+        #startBtn:hover {
+            background-color: #b2e88c;
+        }
+        #stopBtn {
+            background-color: #e10567;
+        }
+        #stopBtn:hover {
+            background-color: #bfa5b0;
+        }
+        #resetBtn{
+            background-color: #496387;
+        }
+        #resetBtn:hover{
+            background-color: #838b95;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 id="myH1">
+        Stopwatch
+    </h1>
+    <div id="container">
+        <div id="display">
+            00:00:00
+        </div>
+        <div id="controls">
+        <button id="startBtn" onclick="start()">Start</button>
+        <button id="stopBtn" onclick="stop()">Stop</button>
+        <button id="resetBtn" onclick="reset()">Reset</button>
+        </div>
+    </div>
+
+<script src="stopwatch.js">
+
+</script>
+
+</body>
+</html>

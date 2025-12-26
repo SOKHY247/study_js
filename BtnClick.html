@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 2em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #mySubmit {
+            font-size: 1em;
+        }
+        .container {
+            background-color: aqua;
+            display: block;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid green;
+            border-radius: 5px;
+            box-sizing: 20px;
+            padding: 5px 5px 5px ;
+           
+
+        }
+        .mySubmit {
+            display: inline;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+        .textColor {
+            color: green;
+        }
+        button:hover {
+            background-color: rgb(115, 172, 115);
+           
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+
+    <input type="checkbox" id="myCheckbox" >
+    <label for="myCheckbox">Please Subscribe Now </label><br><br>
+
+    <input type="radio" id="visaBtn" name="card">
+    <label for="visaBtn" id="visaBtn">Visa</label><br>
+
+    <input type="radio" id="masterCardBtn" name="card">
+    <label for="masterCardBtn" id="visaBtn">MasterCard</label><br>
+
+    <input type="radio" id="payPalBtn" name="card">
+    <label for="visaBtn" id="visaBtn">PayPal</label><br><br>
+
+    <button type="submit" id="mySubmit" class="mySubmit"> Submit</button>
+    </div>
+  
+    <p id="subResult"> </p>
+    
+    <p id="paymentResult"> </p>
+
+
+   
+    
+    <script src="BtnClick.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #b8caca;
+        }
+        h1 {
+            color: #4c5c84;
+        }
+        form{
+            background-color: #c6c6ab;
+            text-align: center;
+            max-width: 350px;
+            margin: auto;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 5px 5px 5px #889f64;
+        }
+        #textBox {
+            width: 50%;
+            text-align: center;
+            font-size: 2em;
+            border: 2px solid yellowgreen;
+            border-right: 4px;
+            margin-bottom: 15px;
+        }
+        label{
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        button{
+            margin-top: 15px;
+            background-color: #846a4c;
+            color: white;
+            font-size: 1.5em;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #b6c5a9;
+        }
+        #result{
+            font-size: 1.75em;
+            font-weight: bold;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <form>
+        <h1 > Temperature conversion : </h1>
+        <input type="number" id="textBox" value="0"><br>
+
+        <input type="radio" id="toFahrenheit" name="unit" >
+        <lable for="toFahrenheit"> Celsius => Fahrenheit </lable><br>
+
+
+        <input type="radio" id="toCelsius" name="unit">
+        <label for="toCelsius"> Fahrenheit => Celsius </label>
+
+        <button type="button" onclick="convert()">Submit</button>
+        <p id="result">Select a unit :</p>
+    </form>
+
+    <script scr="Test.js"></script>
+</body>
+</html>
