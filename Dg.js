@@ -30,13 +30,17 @@
 // const lastChild = element.lastElementChild;
 // lastChild.style.backgroundColor= "green";
 
-const uilElements = document.querySelectorAll("ul")
+// const uilElements = document.querySelectorAll("ul")
 
-uilElements.forEach(uilElements => {
-    const lastChild = uilElements.lastElementChild;
-    lastChild.style.backgroundColor= "green"
-})
+// uilElements.forEach(uilElements => {
+//     const lastChild = uilElements.lastElementChild;
+//     lastChild.style.backgroundColor= "green"
+// })
 
 
+// ------------- //.nextElementSibling ----------------
 
+const element = document.getElementById("apple");
+const nextSibling = element.nextElementSibling;
+nextSibling.style.backgroundColor = "green"
 
