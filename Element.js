@@ -63,6 +63,7 @@
 // foods[1].style.backgroundColor = "lightgreen";
 // foods[2].style.backgroundColor = "lightgray";
 
+// 
 const foods = document.querySelectorAll("li");
 
 foods.forEach((food)=>{
