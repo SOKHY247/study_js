@@ -40,7 +40,29 @@
 
 // ------------- //.nextElementSibling ----------------
 
-const element = document.getElementById("apple");
-const nextSibling = element.nextElementSibling;
-nextSibling.style.backgroundColor = "green"
+// const element = document.getElementById("apple");
+// const nextSibling = element.nextElementSibling;
+// nextSibling.style.backgroundColor = "green"
+
+// -------------------------previosElementSibling------------------
+
+// const element = document.getElementById("vagetable");
+// const prevSibling = element.previousElementSibling;
+// prevSibling.style.backgroundColor = "red";
+
+// --------------------.parentElement------------------
+
+// const element = document.getElementById("Orange");
+// const parent = element.parentElement;
+// parent.style.backgroundColor = "lightgrey";
+
+// --------------------.children------------------
+
+const element = document.getElementById("fruits");
+const children = element.children;
+
+children[1].style.backgroundColor = "lightblue";
+// Array.from(children).forEach(child => {
+//     child.style.backgroundColor = "lightblue";
+// })
 
