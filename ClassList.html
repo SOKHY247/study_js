@@ -114,10 +114,17 @@
         });
         buttons.forEach(button => {
             button.addEventListener("click", event =>{
-                event.target.textContent = "Good jobs"
-                event.target.style = "blue"
+                event.target.textContent = "I love u 😘"
+                event.target.style.backgroundColor = "blue"
             })
-        })
+        });
+        buttons.forEach(button =>{
+            button.addEventListener("dblclick", event =>{
+                event.target.textContent = 'Why is dbclick me😯'
+                event.target.style.backgroundColor = "yellow"
+            })
+        })  
+    
 
     
 
