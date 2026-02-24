@@ -17,6 +17,9 @@
         }
         img.displaySlide{
             display: block;
+            animation-name: fade;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
         }
         .slider button {
             position: absolute;
@@ -39,7 +42,10 @@
         }
         @keyframes fade {
             from {
-                
+                opacity: 0.5;
+            }
+            to {
+                opacity: 1;;
             }
         }
 
@@ -65,8 +71,8 @@
         function initailize(){
 
             if(slides.length > 0){
-                slides[slideIndex].classList.add("displaySlide");
-                setIntervalId = setInterval(nextSlide, 5000);
+               // slides[slideIndex].classList.add("displaySlide");
+                setIntervalId = setInterval(nextSlide, 3000);
             }
         }
 
@@ -81,7 +87,7 @@
             slides.forEach(slide => {
                 slide.classList.remove("displaySlide");
             });
-            slides[index].classList.add("displaySlide");
+            slides[slideIndex].classList.add("displaySlide");
 
 
         }
