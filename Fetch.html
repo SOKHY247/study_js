@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pokemonImage{
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+    </style>
+</head>
+<body>
+
+    <input type="text" id="pokename" placeholder="Enter Pokeman name">
+    <button onclick="fetchData()">Search Pokemon</button>
+
+    <img src="" alt="Pokemon Image" id="pokemonImage" style="display: none;">
+
+    
+    <script>
+         async function fetchData(){
+            try{
+
+                const pokename = document.getElementById("pokename").value.toLowerCase();
+                const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokename}`);
+
+                if(!response.ok){
+                    throw new Error("Something went wrong, Please check url again!!")
+                }
+
+                const data = await response.json();
+                const pokemonImage = data.sprites.front_default;
+                const imagElement = document.getElementById("pokemonImage");
+
+                imagElement.src = pokemonImage;
+                imagElement.style.display = "block";
+                
+
+
+               
+            }
+            catch(error){
+                console.error(error);
+            }
+        }
+        fetchData();
+
+        // fetch    = Function used for making HTTP request to fetch resources.
+        //            (JSON style data, image , files)
+        //             Simplifiles asynchronous data fetching in Javascript.
+        //             and used for interactive with APIs to interactive and send
+        //             data asynchronously over the web.
+        //             fetch(url, options)
+
+
+        // fetch("https://pokeapi.co/api/v2/pokemon/spongebob")
+        //     .then(response => {
+        //         if(!response.ok){
+        //             throw new Error("Something went wrong, Please check url again!!")
+        //         }
+        //        // return response.json()
+        //     })
+        //     .then(data => console.log(data.id))
+        //     .catch(error => console.log(error))
+
+        // async function fetchData(){
+        //     try{
+        //         const response = await fetch("https://pokeapi.co/api/v2/pokemon/typhlosion");
+
+        //         if(!response.ok){
+        //             throw new Error("Something went wrong, Please check url again!!")
+
+        //         }
+
+        //         const data = await response.json();
+        //         console.log(data);
+        //     }
+        //     catch(error){
+        //         console.error(error);
+        //     }
+        // }
+        // fetchData();
+
+       
+
+
+
+    </script>
+</body>
+</html>

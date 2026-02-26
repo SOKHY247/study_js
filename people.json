@@ -1,0 +1,23 @@
+[
+    {
+    "name": "Sokhey",
+    "age": 23,
+    "isEmployed": true
+    },
+    {
+    "name": "Sopheak",
+    "age": 21,
+    "isEmployed": false
+    },
+    {
+    "name": "peakara",
+    "age": 22,
+    "isEmployed": false
+    },
+    {
+    "name": "reaksa",
+    "age": 33,
+    "isEmployed": true
+    }
+    
+]

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    
+    <script>
+        // Promise = An Object that manages asynchronous operations.
+        //           Wrap a Promise Object around {asynchronous code}
+        //           "I promise to retourn a values"
+        //            PENDING -> Resolved or rejected
+        //           new Promise ((resolve, reject) => {asynchronous code})
+
+        // DO these chorse in order
+
+        // 1. walk the dog
+        //2. clearn the kinchen
+        //3. take out the trash
+
+        // const promise = new Promise ((resolve, reject) => {
+
+        //     let success = false;
+
+        //     if(success){
+        //         resolve("Take is Done")
+        //     }
+        //     else{
+        //         reject("Take is not Done")
+        //     }
+        // });
+
+        // promise
+        // .then((result) => console.log(result))
+        // .catch((error) => console.log(error));
+
+
+        function WalkDog(){
+
+            return new Promise((resolve, reject) => {
+                setTimeout(() =>{
+                    let Walk = true;
+                    if(Walk){
+                    resolve("You walked the dog")
+                    }
+                    else{
+                        reject("You did not walk the dog")
+                    }
+                } , 5000)
+
+            })
+        }
+
+        function CleanKitchen(){
+
+            return new Promise((resolve, reject) => {
+                setTimeout(() =>{
+                    let Clean = false;
+                    if(Clean){
+                        resolve("You cleaned the kitchen")
+                    }
+                    else{
+                        reject("You did not clean the kitchen")
+                    }
+                } , 2000)
+            })
+        }
+        function TakeOutTrash(){
+            return new Promise((resolve, reject) => {
+                setTimeout(() =>{
+                    let Trash = true;
+                    if(Trash){
+                    resolve("You took out the trash")
+                    }
+                    else {
+                        reject("You did not take out the trash")
+                    }
+                } , 1000)
+            })
+        }
+
+        async function doChroes() {
+
+            try {
+                const dog = await WalkDog();
+                console.log(dog);
+                
+                const kitchen = await CleanKitchen();
+                console.log(kitchen);
+                
+                const trash = await TakeOutTrash();
+                console.log(trash);
+
+
+            }
+            catch(error){
+                console.error(error);
+            }
+
+        }
+        doChroes();
+
+
+
+
+        // WalkDog().then(value => console.log(value));
+        // CleanKitchen().then(value => console.log(value));
+        // TakeOutTrash().then(value => console.log(value));
+
+        // WalkDog()
+        // .then(value => {console.log(value); return CleanKitchen()})
+        // .then(value => {console.log(value); return TakeOutTrash()})
+        // .then(value => {console.log(value); console.log("your finished all the tasks")})
+        // .catch(error => console.log(error));
+
+                
+                   
+        
+
+        // WalkDog(() => {
+        //     CleanKitchen(() =>{
+        //         TakeOutTrash(() => 
+        //         console.log("your finished all the tasks"))
+        //     })
+        // })
+
+        
+
+
+
+
+
+    </script>
+</body>
+</html>

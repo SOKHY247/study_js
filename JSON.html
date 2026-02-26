@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    // JSON  = (Javascript Object Notation) data-interchange format
+    //         Used for exchange data between a server and a web applition
+    //         JSON files {key:value} OR [value1 , value2 , value3]
+
+    //         JSON.stringify() = converts a JS object to a JSON string
+    //         JSON.parse() = converts a JSON string to a JS object
+
+
+    const names = `["Cocacola","stings","water carot"]`;
+
+    const person = `{ 
+    "name": "Sokhey",
+    "age": 23,
+    "isEmployed": true,
+    "hobbies": ["A", "B", "C"]
+}`
+    const people = `[
+    {
+    "name": "Sokhey",
+    "age": 23,
+    "isEmployed": true
+    },
+    {
+    "name": "Sopheak",
+    "age": 21,
+    "isEmployed": false
+    },
+    {
+    "name": "peakara",
+    "age": 22,
+    "isEmployed": false
+    },
+    {
+    "name": "reaksa",
+    "age": 33,
+    "isEmployed": true
+    }
+    
+]`
+
+
+
+// const parseData = JSON.parse(people);
+// console.log(parseData);
+
+fetch("people.json")
+    .then(response => response.json())
+    .then(values => values.forEach(value => console.log(value.age)))
+
+
+    // const jsonString = JSON.stringify(names);
+    // console.log(names);
+    // console.log(jsonString);
+    // console.log(person)
+    //console.log(JSON.stringify(person));
+   // console.log(people);
+   // console.log(JSON.stringify(people));
+
+
+    
+
+    </script>
+</body>
+</html>
