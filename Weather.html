@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: antiquewhite;
+            margin: 0;
+            display: flex;;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .weatherform{
+            margin: 20px;
+            
+        }
+        .cityInput{
+            padding: 10px;
+            font-size: 2rem;
+            font-weight: bold;
+            border: 2px solid rgb(189, 167, 167);
+            border-radius: 5px;
+            margin: 10px;
+            width: 300px;
+        }
+        button[type = "submit"]{
+            padding: 10px 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            background-color: rgb(159, 187, 187);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover{
+            background-color: rgb(183, 196, 192);
+        }
+        .card{
+            background: linear-gradient(100deg, hsl(210,100%, 75%),hsl(40, 100%, 75%));
+            padding: 50px;
+            box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 300px;
+            padding: 10px;
+            
+        }
+        h1{
+            font-size: 3.5rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        p{
+            font-size: 1.5rem;
+            margin: 5px 0;
+        }
+        .cityDisplay, .tempDisply{
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: rgb(112, 81, 81);
+            margin-bottom: 25px;
+        }
+        .humidityDisply{
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        .descDisply{
+            font-style: italic;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        .Emji{
+            font-size: 5rem;
+            margin: 0;
+        }
+        .errorDisply{
+            font-size: 2rem;
+            font-weight: bold;
+            color: hsla(0, 0%, 0%, 0.5)
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    
+    <form action="" class="weatherform">
+        <input type="text" class="cityInput" placeholder="Enter city">
+
+        <button type="submit">Get Weather</button>
+        </form>
+
+        <div class="card" style="display: none;">
+            <!-- <h1 c
+            class="cityDisplay">Miani</h1>
+            <p class="tempDisply">90°C</p>
+            <p class="humidityDisply">Humidity : 75%</p>
+            <p class="descDisply">Clear Skies</p>
+            <p class="Emji">☀️</p>
+            <p class="errorDisply">Please enter​ city</p> -->
+
+            
+
+        </div>
+        <script>
+
+            // Weather APP
+
+            const weatherForm = document.querySelector(".weatherform");
+            const cityInput = document.querySelector(".cityInput");
+            const card = document.querySelector(".card");
+            const apikey = "32789a6090cd7cbfd114526910d64ded";
+
+            weatherForm.addEventListener("submit", async event => {
+            
+                event.preventDefault();
+
+                const city = cityInput.value;
+                
+                if(city){
+
+                    try{
+
+                        const weatherData = await getweatherData(city);
+                        displyWeatherInfo(weatherData);
+
+
+                    }
+                    catch(error){
+                        console.error(error);
+                        displyError(error);
+                    }
+
+                }
+                else{
+                    displyError("Please enter a city");
+                }
+            });
+
+            async function getweatherData(city) {
+                const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
+
+                const response = await fetch(apiUrl);
+
+                console.log(response);
+
+                if(!response.ok){
+                    throw new Error("Could not fetch weather data, please try again later.")
+                }
+                return await response.json();
+            }
+
+            function displyWeatherInfo(data){
+                console.log(data);
+                const {
+                      name: city , 
+                      main: {temp, humidity},
+                      weather : [{description, id}]
+                    } = data;
+                card.textContent = "";
+                card.style.display = "flex";
+
+                const cityDisply = document.createElement("h1");
+                const tempDisply = document.createElement("p");
+                const humidityDisply = document.createElement("p");
+                const descDisply = document.createElement("p");
+                const Emji = document.createElement("p");
+
+                cityDisply.textContent = city;
+                tempDisply.textContent = `${(temp).toFixed(1)}°C`;
+                humidityDisply.textContent = `Humidity : ${humidity}%`;
+                descDisply.textContent = description;
+                Emji.textContent =getweatherEmoj(id);
+
+
+
+
+                cityDisply.classList.add("cityDisplay");
+                tempDisply.classList.add("tempDisply");
+                humidityDisply.classList.add("humidityDisply");
+                descDisply.classList.add("descDisply");
+                Emji.classList.add("Emji");
+                
+
+                card.appendChild(cityDisply);
+                card.appendChild(tempDisply);
+                card.appendChild(humidityDisply);
+                card.appendChild(descDisply);
+                card.appendChild(Emji);
+                
+              //  card.appendChild(descDisply);
+
+
+
+
+
+                //tempDisply.textContent = `${temp}°C`;
+
+                
+
+
+            }
+
+            function getweatherEmoj(weatherId){
+
+                switch(true){
+                    case (weatherId >= 200 && weatherId < 300):
+                        return "⛈️";
+                    case (weatherId >= 300 && weatherId <= 400):
+                        return "🌧️";
+                    case (weatherId >= 500 && weatherId <= 600):
+                        return "🌦️";
+                    case (weatherId >= 600 && weatherId <= 700):
+                        return "❄️";
+                    case (weatherId >= 700 && weatherId <= 800):
+                        return "🌫️";
+                    case weatherId === 800:
+                        return "☀️";
+                    case (weatherId >= 801 && weatherId <= 804):
+                        return "☁️";
+                    default:
+                        return "🤷‍♂️ ?";
+                }
+
+
+            }
+            function displyError(message){
+
+                const errorDisply = document.createElement("p");
+                errorDisply.textContent = message;
+                errorDisply.classList.add("errorDisply");
+                card.textContent = "";
+                card.style.display = "flex";
+                card.appendChild(errorDisply);
+
+
+            }
+
+
+
+
+
+            
+        </script>
+    
+</body>
+</html>
